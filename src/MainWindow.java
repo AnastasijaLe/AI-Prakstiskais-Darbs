@@ -83,7 +83,13 @@ public class MainWindow extends JFrame {
             revalidate();
             repaint();
             startButton.setVisible(false);
-            GameTree rootNode = new GameTree(player1Score, player2Score, gameArray);
+            GameTree rootNode = new GameTree(player1Score, player2Score, gameArray, playerTurn);
+    
+            //tests game tree
+            System.out.println("Skaitlu rinda: " + gameArray);
+            rootNode.generateChildren(2, 0);//max depth 2, jo ar lielaku parak bremze
+            rootNode.printTree(0);
+            
             GameButtons buttons = new GameButtons(gameArray);
             JButton continueButton = new JButton("Turpinat"); // Loģika kas tiek darbināta kad tiek nospiesta turpināt poga
             continueButton.addActionListener(event -> {
